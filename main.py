@@ -115,9 +115,6 @@ html = """
 </html>
 """
 
-# Load environment variables from .env file
-load_dotenv()
-
 sender_email = os.environ.get('SENDEREMAIL')
 password = os.environ.get('SENDERPASSWORD')
 receiver_email = os.environ.get('RECIEVEREMAILS')
