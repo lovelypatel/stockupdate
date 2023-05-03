@@ -3,6 +3,8 @@ import datetime
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import os
+from dotenv import load_dotenv
 
 Stock = [
     {"symbol": "^IXIC", "name": "Nasdaq"},
@@ -113,9 +115,12 @@ html = """
 </html>
 """
 
-sender_email = 'mediatv7051@gmail.com'
-password = 'xxfznlnadwfjunuf'
-receiver_email = ['ayushchandrapatel7051@gmail.com','ayushcp7051a@gmail.com']
+# Load environment variables from .env file
+load_dotenv()
+
+sender_email = os.environ.get('SENDEREMAIL')
+password = os.environ.get('SENDERPASSWORD')
+receiver_email = os.environ.get('RECIEVEREMAILS')
 
 def send_email(html):
     server = smtplib.SMTP('smtp.gmail.com', 587)
