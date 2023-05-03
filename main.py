@@ -116,7 +116,7 @@ html = """
 
 sender_email = os.environ.get('SENDEREMAIL')
 password = os.environ.get('SENDERPASSWORD')
-receiver_email = os.environ.get('RECIEVEREMAILS')
+receiver_email = eval(os.environ.get('RECIEVEREMAILS'))
 
 def send_email(html):
     server = smtplib.SMTP('smtp.gmail.com', 587)
